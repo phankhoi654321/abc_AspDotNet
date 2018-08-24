@@ -9,19 +9,26 @@ namespace MovieShop.Controllers
 {
     public class CustomersController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = GetCustomers();
+            var customers = _context.Customers.ToList();
             return View(customers);
         }
 
         public ActionResult Detail(int id)
         {
-            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             return View(customer);
         }
 
+        /*
         private IEnumerable<Customer> GetCustomers()
         {
             return new List<Customer>
@@ -30,5 +37,6 @@ namespace MovieShop.Controllers
                 new Customer {Id = 2, Name = "Tran Van Tuan"}
             };
         }
+        */
     }
 }
