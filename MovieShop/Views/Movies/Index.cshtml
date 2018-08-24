@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MovieShop.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+<div class="list-group">
+    <h2 class="list-group-item list-group-item-action active">
+        @ViewContext.RouteData.Values["controller"].ToString()
+    </h2>
+    @foreach (var movie in Model)
+    {
+        @Html.ActionLink(movie.Name, "Detail", "Movies", new {id = movie.Id}, new {@class = "list-group-item list-group-item-action"})
+        ;
+    }
+</div>
