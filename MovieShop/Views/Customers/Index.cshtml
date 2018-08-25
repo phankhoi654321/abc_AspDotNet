@@ -5,15 +5,38 @@
 }
 
 <br />
-<div class="list-group">
-    <h2 class="list-group-item list-group-item-action active">
-        @ViewContext.RouteData.Values["controller"].ToString()
-    </h2>
-    @foreach (var customer in Model)
-    {
-        
-        @Html.ActionLink(customer.Name, "Detail", "Customers", new {id = customer.Id}, new {@class = "list-group-item list-group-item-action"});
-    }
+@*
+    <div class="list-group">
+        <h2 class="list-group-item list-group-item-action active">
+            @ViewContext.RouteData.Values["controller"].ToString()
+        </h2>
+        @foreach (var customer in Model)
+        {
 
-</div>
+            @Html.ActionLink(customer.Name, "Detail", "Customers", new { id = customer.Id }, new { @class = "list-group-item list-group-item-action" });
+        }
+
+    </div>
+*@
+<h1>
+    @ViewContext.RouteData.Values["controller"].ToString()
+</h1>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Customer</th>
+            <th scope="col">Discount Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(customer.Name, "Detail", "Customers", new { id = customer.Id }, null)</td>
+                <td>@customer.MembershipType.DiscountRate %</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
