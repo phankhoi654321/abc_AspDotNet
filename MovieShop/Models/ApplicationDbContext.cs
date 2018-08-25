@@ -14,5 +14,6 @@ namespace MovieShop.Models
         }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Movie> Movies { get; set; }
     }
 }
