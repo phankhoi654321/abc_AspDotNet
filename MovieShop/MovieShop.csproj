@@ -159,61 +159,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808241054262_initialModel.cs" />
-    <Compile Include="Migrations\201808241054262_initialModel.Designer.cs">
-      <DependentUpon>201808241054262_initialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808241106377_AddIsSubscribedToCustormer.cs" />
-    <Compile Include="Migrations\201808241106377_AddIsSubscribedToCustormer.Designer.cs">
-      <DependentUpon>201808241106377_AddIsSubscribedToCustormer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808241109460_AddMembershiptype.cs" />
-    <Compile Include="Migrations\201808241109460_AddMembershiptype.Designer.cs">
-      <DependentUpon>201808241109460_AddMembershiptype.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808241120097_populateMembershipType.cs" />
-    <Compile Include="Migrations\201808241120097_populateMembershipType.Designer.cs">
-      <DependentUpon>201808241120097_populateMembershipType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808241131114_ApplyAnnotationsToCustomerName.cs" />
-    <Compile Include="Migrations\201808241131114_ApplyAnnotationsToCustomerName.Designer.cs">
-      <DependentUpon>201808241131114_ApplyAnnotationsToCustomerName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250310305_addNameColumnInMembershipTypeTable.cs" />
-    <Compile Include="Migrations\201808250310305_addNameColumnInMembershipTypeTable.Designer.cs">
-      <DependentUpon>201808250310305_addNameColumnInMembershipTypeTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250312156_updateRecordMembershipTypeTable.cs" />
-    <Compile Include="Migrations\201808250312156_updateRecordMembershipTypeTable.Designer.cs">
-      <DependentUpon>201808250312156_updateRecordMembershipTypeTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250736410_AddBirthdayColumnToCustomer.cs" />
-    <Compile Include="Migrations\201808250736410_AddBirthdayColumnToCustomer.Designer.cs">
-      <DependentUpon>201808250736410_AddBirthdayColumnToCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250738113_UpdateBirthdayInCustomer.cs" />
-    <Compile Include="Migrations\201808250738113_UpdateBirthdayInCustomer.Designer.cs">
-      <DependentUpon>201808250738113_UpdateBirthdayInCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250752223_AddDatimeNulable.cs" />
-    <Compile Include="Migrations\201808250752223_AddDatimeNulable.Designer.cs">
-      <DependentUpon>201808250752223_AddDatimeNulable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250825228_AddMovieTable.cs" />
-    <Compile Include="Migrations\201808250825228_AddMovieTable.Designer.cs">
-      <DependentUpon>201808250825228_AddMovieTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250833071_updateMovieTable.cs" />
-    <Compile Include="Migrations\201808250833071_updateMovieTable.Designer.cs">
-      <DependentUpon>201808250833071_updateMovieTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250834118_updateMovieTable1.cs" />
-    <Compile Include="Migrations\201808250834118_updateMovieTable1.Designer.cs">
-      <DependentUpon>201808250834118_updateMovieTable1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808250835001_CreateMovieTable.cs" />
-    <Compile Include="Migrations\201808250835001_CreateMovieTable.Designer.cs">
-      <DependentUpon>201808250835001_CreateMovieTable.cs</DependentUpon>
+    <Compile Include="Migrations\201808251013270_InitialModel.cs" />
+    <Compile Include="Migrations\201808251013270_InitialModel.Designer.cs">
+      <DependentUpon>201808251013270_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -286,47 +234,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808241054262_initialModel.resx">
-      <DependentUpon>201808241054262_initialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808241106377_AddIsSubscribedToCustormer.resx">
-      <DependentUpon>201808241106377_AddIsSubscribedToCustormer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808241109460_AddMembershiptype.resx">
-      <DependentUpon>201808241109460_AddMembershiptype.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808241120097_populateMembershipType.resx">
-      <DependentUpon>201808241120097_populateMembershipType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808241131114_ApplyAnnotationsToCustomerName.resx">
-      <DependentUpon>201808241131114_ApplyAnnotationsToCustomerName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250310305_addNameColumnInMembershipTypeTable.resx">
-      <DependentUpon>201808250310305_addNameColumnInMembershipTypeTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250312156_updateRecordMembershipTypeTable.resx">
-      <DependentUpon>201808250312156_updateRecordMembershipTypeTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250736410_AddBirthdayColumnToCustomer.resx">
-      <DependentUpon>201808250736410_AddBirthdayColumnToCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250738113_UpdateBirthdayInCustomer.resx">
-      <DependentUpon>201808250738113_UpdateBirthdayInCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250752223_AddDatimeNulable.resx">
-      <DependentUpon>201808250752223_AddDatimeNulable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250825228_AddMovieTable.resx">
-      <DependentUpon>201808250825228_AddMovieTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250833071_updateMovieTable.resx">
-      <DependentUpon>201808250833071_updateMovieTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250834118_updateMovieTable1.resx">
-      <DependentUpon>201808250834118_updateMovieTable1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808250835001_CreateMovieTable.resx">
-      <DependentUpon>201808250835001_CreateMovieTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808251013270_InitialModel.resx">
+      <DependentUpon>201808251013270_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
