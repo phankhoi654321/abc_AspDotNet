@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MovieShop.Models
 {
-    public class MembershipType
+    public class Membershiptype
     {
         public byte Id { get; set; }
         public short SignUpFee { get; set; }

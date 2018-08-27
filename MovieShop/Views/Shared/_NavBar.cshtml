@@ -16,7 +16,8 @@
                 var newClassCustomer = ViewContext.RouteData.Values["controller"].ToString() == "Customers" ? "active" : null;
             }
             <li class="nav-item @newClassCustomer ">
-                @Html.ActionLink("Customers", "Index", "Customers", new { id = "wasClick" }, new { @class = "nav-link" })
+                @* @Html.ActionLink("Customers", "Index", "Customers", new { id = "wasClick" }, new { @class = "nav-link" }) *@
+                @Html.ActionLink("Customers", "Index", "Customers", new { area = "" }, new { @class = "nav-link" })
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

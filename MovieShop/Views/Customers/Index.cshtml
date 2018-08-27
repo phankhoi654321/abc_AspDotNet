@@ -28,15 +28,17 @@
             <th scope="col">Customer</th>
             <th scope="col">Discount Rate</th>
             <th scope="col">Membership Type</th>
+            <th scope="col">Delete Member</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var customer in Model)
         {
             <tr>
-                <td>@Html.ActionLink(customer.Name, "Detail", "Customers", new { id = customer.Id }, null)</td>
-                <td>@customer.MembershipType.DiscountRate %</td>
-                <td>@customer.MembershipType.Name</td>
+                <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
+                <td>@customer.Membershiptype.DiscountRate %</td>
+                <td>@customer.Membershiptype.Name</td>
+                <td>@Html.ActionLink("Delete", "Delete", "Customers", new { id = customer.Id }, new {@class="btn btn-danger"})</td>
             </tr>
         }
     </tbody>

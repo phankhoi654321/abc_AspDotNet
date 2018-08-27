@@ -3,14 +3,41 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
+@*
+    <div class="list-group">
+        <h2 class="list-group-item list-group-item-action active">
+            @ViewContext.RouteData.Values["controller"].ToString()
+        </h2>
+        @foreach (var movie in Model)
+        {
+            @Html.ActionLink(movie.Name, "Detail", "Movies", new {id = movie.Id}, new {@class = "list-group-item list-group-item-action"})
+            ;
+        }
+    </div>
+*@
+
+<h1>
+    @ViewContext.RouteData.Values["controller"].ToString()
+</h1>
+@Html.ActionLink("Add New Movie", "MovieForm", "Movies" , new {@class= "btn btn-primary" })
+
+<br />
 <br/>
-<div class="list-group">
-    <h2 class="list-group-item list-group-item-action active">
-        @ViewContext.RouteData.Values["controller"].ToString()
-    </h2>
-    @foreach (var movie in Model)
-    {
-        @Html.ActionLink(movie.Name, "Detail", "Movies", new {id = movie.Id}, new {@class = "list-group-item list-group-item-action"})
-        ;
-    }
-</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Movie</th>
+            <th scope="col">Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+                <td>@movie.Genre.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

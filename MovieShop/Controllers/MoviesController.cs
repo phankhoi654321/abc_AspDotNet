@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MovieShop.Models;
+using MovieShop.ViewModels;
 
 namespace MovieShop.Controllers
 {
@@ -46,6 +47,53 @@ namespace MovieShop.Controllers
                 new Movie {Id = 1, Name = "Avenger 4"},
                 new Movie {Id = 2, Name = "Mission Impossible"}
             };
+        }
+
+        public ActionResult MovieForm()
+        {
+            MovieFormViewModel movieForm = new MovieFormViewModel
+            {
+                Genres = _context.Genres.ToList(),
+            };
+            return View(movieForm);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+
+            var movieForm = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+            return View("MovieForm", movieForm);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                Movie updateMovie = _context.Movies.Single(m => m.Id == movie.Id);
+                updateMovie.Name = movie.Name;
+                updateMovie.ReleaseDate = movie.ReleaseDate;
+                updateMovie.Genre = movie.Genre;
+                updateMovie.NumberInStock = movie.NumberInStock;
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
         }
     }
 }
