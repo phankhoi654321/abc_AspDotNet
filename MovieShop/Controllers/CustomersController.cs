@@ -31,13 +31,25 @@ namespace MovieShop.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipTypes,
-                
+                Customer = new Customer()       //this will make default value like Id = 0;
             };
             return View(viewModel);
         }
         [HttpPost] //Only post
+        [ValidateAntiForgeryToken]  //Check must be post with value token
         public ActionResult Save(Customer customer)  //model binding
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList(),
+                };
+
+                return View("CustomerForm", viewModel);
+            }
+
             if (customer.Id == 0)
             {
                 _context.Customers.Add(customer);   //This save on memory not on database, after that mus be SaveChange()

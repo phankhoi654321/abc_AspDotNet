@@ -67,15 +67,15 @@ namespace MovieShop.Controllers
                 return HttpNotFound();
             }
 
-            var movieForm = new MovieFormViewModel
+            var movieForm = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
             return View("MovieForm", movieForm);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
             if (movie.Id == 0)

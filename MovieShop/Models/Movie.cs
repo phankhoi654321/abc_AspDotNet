@@ -11,6 +11,7 @@ namespace MovieShop.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         [ForeignKey("Genre")]
@@ -18,11 +19,16 @@ namespace MovieShop.Models
         public virtual Genre Genre { get; set; }
         
         [Display (Name = "Realease Date")]
+        [Required]
         public DateTime ReleaseDate { get; set; }
 
+        [Required]
         public DateTime DateAdded { get; set; }
 
+        
         [Display(Name = "Number In Stock")]
+        [Required]
+        [Range(1, 20)]
         public byte NumberInStock { get; set; }
     }
 }
