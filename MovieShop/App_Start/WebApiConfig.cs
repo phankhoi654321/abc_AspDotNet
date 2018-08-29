@@ -13,7 +13,7 @@ namespace MovieShop
         {
             //Config to Camel Casting for using Json
             var settings = config.Formatters.JsonFormatter.SerializerSettings;
-            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver(); //enable config
             settings.Formatting = Formatting.Indented;
 
             config.MapHttpAttributeRoutes();

@@ -51,7 +51,7 @@ namespace MovieShop.Controllers.API
             _context.Customers.Add(customer);
             _context.SaveChanges();
 
-            customerDto.Id = customer.Id;
+            customerDto.Id = customer.Id;  //because Id is identity
 
             return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto );
             //Created(Uri location, T content) | Uri location : /api/customers/10 
