@@ -22,7 +22,7 @@
     @ViewContext.RouteData.Values["controller"].ToString()
 </h1>
 <br />
-<table class="table table-hover">
+<table id="customer" class="table table-hover">
     <thead>
         <tr>
             <th scope="col">Customer</th>
@@ -38,9 +38,37 @@
                 <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
                 <td>@customer.Membershiptype.DiscountRate %</td>
                 <td>@customer.Membershiptype.Name</td>
-                <td>@Html.ActionLink("Delete", "Delete", "Customers", new { id = customer.Id }, new {@class="btn btn-danger"})</td>
+                @* <td>@Html.ActionLink("Delete", "Delete", "Customers", new { id = customer.Id }, new {@class="btn btn-danger"})</td> *@
+                <td>
+                    <button data-customer-id="@customer.Id" class="btn btn-link js-delete">Delete</button>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () { 
+            //This is to prevent any jQuery code from running before the document is finished loading (is ready).
+            $("#customer .js-delete").on("click",
+                function() {
+                    var button = $(this); //this is button element call by $("#customer .js-delete")
+
+                    if (confirm("Are you sure you want to delete this customer?")) {
+                        $.ajax({ //this is jQuery ajax
+                            url: "api/customers/" + button.attr("data-customer-id"),
+                            //A string containing the URL to which the request is sent.
+                            method: "DELETE",
+                            success: function() { //callback function
+                                //console.log("Success");
+                                button.parents("tr").remove(); //Remove row with delete button
+                            }
+                        });
+                    }
+                });
+        });
+    </script>
+}
 

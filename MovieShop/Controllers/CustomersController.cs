@@ -32,7 +32,9 @@ namespace MovieShop.Controllers
             {
                 MembershipTypes = membershipTypes,
                 Customer = new Customer()       //this will make default value like Id = 0;
+                
             };
+            
             return View(viewModel);
         }
         [HttpPost] //Only post
