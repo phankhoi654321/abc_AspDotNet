@@ -14,7 +14,7 @@ namespace MovieShop.Models
             //it give we the way to access Customer object (Customer class have properties use this validation)
 
 //            if (customer.MembershipTypeId == 0 || customer.MembershipTypeId == 1)
-            if (customer.MembershipTypeId == Membershiptype.Unknown || customer.MembershipTypeId == Membershiptype.PasAsYouGo)
+            if (customer.MembershipTypeId == MembershipType.Unknown || customer.MembershipTypeId == MembershipType.PasAsYouGo)
             {
                 return ValidationResult.Success;
             }

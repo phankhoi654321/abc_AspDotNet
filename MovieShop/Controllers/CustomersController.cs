@@ -82,13 +82,14 @@ namespace MovieShop.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _context.Customers.Include(c => c.Membershiptype).ToList();
-            return View(customers);
+//            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+//            return View(customers);
+            return View();
         }
 
         public ActionResult Detail(int id)
         {
-            var customer = _context.Customers.Include(c => c.Membershiptype).SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
             return View(customer);
         }
 

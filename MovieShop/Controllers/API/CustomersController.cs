@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 using AutoMapper;
 using MovieShop.Dtos;
 using MovieShop.Models;
@@ -20,9 +21,20 @@ namespace MovieShop.Controllers.API
         }
 
         //GET /api/customers
+        /*
         public IEnumerable<CustomerDto> GetCustomers() //Use Object is CustomerDto
         {
             return _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>); //Use Delegate to map customer to customerDto
+        }
+        */
+        public IHttpActionResult GetCustomers() //Use Object is CustomerDto
+        {
+            var customerDtos = _context.Customers
+                                    .Include(c => c.MembershipType)
+                                    .ToList()
+                                    .Select(Mapper.Map<Customer, CustomerDto>);
+
+            return Ok(customerDtos);
         }
 
         //GET /api/customers/1

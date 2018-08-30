@@ -22,6 +22,8 @@ namespace MovieShop
                 cfg.CreateMap<CustomerDto, Customer>();
                 cfg.CreateMap<Movie, MovieDto>();
                 cfg.CreateMap<MovieDto, Movie>();
+                cfg.CreateMap<MembershipType, MembershipTypeDto>();
+                cfg.CreateMap<MembershipTypeDto, MembershipType>();
             });
 
             GlobalConfiguration.Configure(WebApiConfig.Register);   // add config here

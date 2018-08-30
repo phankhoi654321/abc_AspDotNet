@@ -8,8 +8,8 @@ namespace MovieShop.ViewModels
 {
     public class CustomerFormViewModel
     {
-        public IEnumerable<Membershiptype> MembershipTypes { get; set; }
-        //public List<Membershiptype> MembershipTypes { get; set; }
+        public IEnumerable<MembershipType> MembershipTypes { get; set; }
+        //public List<MembershipType> MembershipTypes { get; set; }
 
         public Customer Customer { get; set; }
         

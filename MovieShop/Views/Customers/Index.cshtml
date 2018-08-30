@@ -21,41 +21,65 @@
     @ViewContext.RouteData.Values["controller"].ToString()
 </h1>
 <br />
-<table id="customer" class="table table-striped table-hover ">
+<table id="customers" class="table table-striped table-hover ">
     <thead>
         <tr>
             <th>Customer</th>
-            <th>Discount Rate</th>
             <th>Membership Type</th>
-            <th>Delete Member</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var customer in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
-                <td>@customer.Membershiptype.DiscountRate %</td>
-                <td>@customer.Membershiptype.Name</td>
-                @* <td>@Html.ActionLink("Delete", "Delete", "Customers", new { id = customer.Id }, new {@class="btn btn-danger"})</td> *@
-                <td>
-                    <button data-customer-id="@customer.Id" class="btn btn-link js-delete">Delete</button>
-                </td>
+        @*
+                    @foreach (var customer in Model)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new {id = customer.Id}, null)</td>
+                            <td>@customer.MembershipType.DiscountRate %</td>
+                            <td>@customer.MembershipType.Name</td>
+                            // <td>@Html.ActionLink("Delete", "Delete", "Customers", new { id = customer.Id }, new {@class="btn btn-danger"})</td>
+            <td>
+                <button data-customer-id="@customer.Id" class="btn btn-link js-delete">Delete</button>
+            </td>
             </tr>
-        }
+            }
+        *@
     </tbody>
 </table>
 
 @section scripts
 {
     <script>
-        $(document).ready(function () { 
+        $(document).ready(function () {
             //This is to prevent any jQuery code from running before the document is finished loading (is ready).
 
-            $("#customer").DataTable();
+            var table = $("#customers").DataTable({
+                ajax: {
+                    url: "/api/Customers",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, customer) {
+                            return "<a href='/customers/edit/" + customer.id + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "membershipType.name"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn btn-link js-delete' data-customer-id=" + data + "> Delete </button>";
+                        }
+                    }
+                ]
+            });
 
-            $("#customer").on("click",".js-delete",
-                function() {
+            $("#customers").on("click",
+                ".js-delete",
+                function () {
                     var button = $(this); //this is button element call by $("#customer .js-delete")
                     bootbox.confirm("Are you sure you want to delete this customer?",
                         function (result) {
@@ -64,9 +88,11 @@
                                     url: "api/customers/" + button.attr("data-customer-id"),
                                     //A string containing the URL to which the request is sent.
                                     method: "DELETE",
-                                    success: function() { //callback function
+                                    success: function () { //callback function
                                         //console.log("Success");
-                                        button.parents("tr").remove(); //Remove row with delete button
+                                        //button.parents("tr").remove(); //Remove row with delete button
+                                        table.row(button.parents("tr")).remove().draw();
+
                                     }
                                 });
                             }

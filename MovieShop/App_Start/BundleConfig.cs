@@ -12,8 +12,8 @@ namespace MovieShop
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
                         "~/scripts/bootbox.js",
-                        "~/scripts/datatables/jquery.dataTables.js",
-                        "~/scripts/datatables/dataTables.bootstrap.js"
+                        "~/scripts/datatables/jquery.datatables.js",
+                        "~/scripts/datatables/datatables.bootstrap.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -31,7 +31,7 @@ namespace MovieShop
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/content/datatables/css/dataTables.bootstrap.css",
+                      "~/content/datatables/css/datatables.bootstrap.css",
                       "~/Content/site.css"));
         }
     }
