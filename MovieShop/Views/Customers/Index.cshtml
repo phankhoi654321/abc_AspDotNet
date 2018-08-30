@@ -51,6 +51,9 @@
     <script>
         $(document).ready(function () { 
             //This is to prevent any jQuery code from running before the document is finished loading (is ready).
+
+            $("#customer").DataTable();
+
             $("#customer").on("click",".js-delete",
                 function() {
                     var button = $(this); //this is button element call by $("#customer .js-delete")
